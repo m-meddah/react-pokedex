@@ -9,7 +9,7 @@ import PokemonDetails from './PokemonDetails/PokemonDetails';
 function App() {
   const [pokemons, setPokemons] = useState([]);
 
-  const pokemonList = () => axios.get('https://pokebuildapi.fr/api/v1/pokemon/limit/3').then((response) => {
+  const pokemonList = () => axios.get('https://pokebuildapi.fr/api/v1/pokemon/limit/151').then((response) => {
     setPokemons(response.data);
   }).catch((error) => console.error(error));
 
@@ -21,8 +21,8 @@ function App() {
     <div className="app">
       <Header />
       <Routes>
-        <Route path="/" element={<PokemonList pokemons={pokemons} />} />
-        <Route path="/:id" element={<PokemonDetails pokemons={pokemons} />} />
+        <Route path="/" element={<PokemonList pokemons={pokemons} setPokemons={setPokemons} />} />
+        <Route path="/:id" element={<PokemonDetails pokemons={pokemons} setPokemons={setPokemons} />} />
       </Routes>
     </div>
   );

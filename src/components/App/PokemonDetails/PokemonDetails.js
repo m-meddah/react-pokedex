@@ -29,7 +29,7 @@ function PokemonDetails({ pokemons }) {
                   <div className="col-2">PV</div>
                   <div className="col-2">{selectedPokemon.stats.HP}</div>
                   <div className="col-8">
-                    <div className="status-bar rounded overflow-hidden"><span style={{ width: (selectedPokemon.stats.HP / 255) * 100 }} />
+                    <div className="status-bar rounded overflow-hidden"><span style={{ width: selectedPokemon.stats.HP / 255 * 100 }} />
                     </div>
                   </div>
                 </div>
@@ -38,7 +38,7 @@ function PokemonDetails({ pokemons }) {
                   <div className="col-2">{selectedPokemon.stats.attack}</div>
                   <div className="col-8">
                     <div className="status-bar rounded overflow-hidden"><span
-                      style={{ width: (selectedPokemon.stats.attack / 255) * 100 }}
+                      style={{ width: selectedPokemon.stats.attack / 255 * 100 }}
                     />
                       />
                     </div>
@@ -49,7 +49,7 @@ function PokemonDetails({ pokemons }) {
                   <div className="col-2">{selectedPokemon.stats.defense}</div>
                   <div className="col-8">
                     <div className="status-bar rounded overflow-hidden"><span
-                      style={{ width: (selectedPokemon.stats.defense / 255) * 100 }}
+                      style={{ width: selectedPokemon.stats.defense / 255 * 100 }}
                     />
                       />
                     </div>
@@ -60,7 +60,7 @@ function PokemonDetails({ pokemons }) {
                   <div className="col-2">{selectedPokemon.stats.special_attack}</div>
                   <div className="col-8">
                     <div className="status-bar rounded overflow-hidden"><span
-                      style={{ width: (selectedPokemon.stats.special_attack / 255) * 100 }}
+                      style={{ width: selectedPokemon.stats.special_attack / 255 * 100 }}
                     />
                       />
                     </div>
@@ -71,7 +71,7 @@ function PokemonDetails({ pokemons }) {
                   <div className="col-2">{selectedPokemon.stats.special_defense}</div>
                   <div className="col-8">
                     <div className="status-bar rounded overflow-hidden"><span
-                      style={{ width: (selectedPokemon.stats.special_defense / 255) * 100 }}
+                      style={{ width: selectedPokemon.stats.special_defense / 255 * 100 }}
                     />
                       />
                     </div>
@@ -82,7 +82,7 @@ function PokemonDetails({ pokemons }) {
                   <div className="col-2">{selectedPokemon.stats.speed}</div>
                   <div className="col-8">
                     <div className="status-bar rounded overflow-hidden"><span
-                      style={{ width: (selectedPokemon.stats.speed / 255) * 100 }}
+                      style={{ width: selectedPokemon.stats.speed / 255 * 100 }}
                     />
                       />
                     </div>
@@ -103,8 +103,24 @@ function PokemonDetails({ pokemons }) {
 PokemonDetails.propTypes = {
   pokemons: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
+      apiTypes: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired
+        }).isRequired,
+      ).isRequired,
+      stats: PropTypes.arrayOf(
+        PropTypes.shape({
+          HP: PropTypes.number.isRequired,
+          attack: PropTypes.number.isRequired,
+          defense: PropTypes.number.isRequired,
+          special_attack: PropTypes.number.isRequired,
+          special_defense: PropTypes.number.isRequired,
+          speed: PropTypes.number.isRequired,
+        })
+      )
     }).isRequired
   ).isRequired,
 
