@@ -5,7 +5,6 @@ import Header from './Header/Header';
 import PokemonList from './PokemonList/PokemonList';
 import PokemonDetails from './PokemonDetails/PokemonDetails';
 
-// == Composant
 function App() {
   const [pokemons, setPokemons] = useState([]);
 
@@ -21,12 +20,11 @@ function App() {
     <div className="app">
       <Header />
       <Routes>
-        <Route path="/" element={<PokemonList pokemons={pokemons} setPokemons={setPokemons} />} />
-        <Route path="/:id" element={<PokemonDetails pokemons={pokemons} setPokemons={setPokemons} />} />
+        <Route path="/" element={<PokemonList pokemons={pokemons} />} />
+        <Route path="/:id" element={<PokemonDetails pokemons={pokemons} />} />
       </Routes>
     </div>
   );
 }
 
-// == Export
 export default App;
