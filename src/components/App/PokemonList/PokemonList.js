@@ -6,9 +6,11 @@ function PokemonList({ pokemons }) {
   return (
     <main className="container-fluid">
       <ul className="pokemon-list reset-list row">
-        {pokemons.map(({ id, name, image }) => (
+        {pokemons.map(({
+          id, name, image, slug
+        }) => (
           <li className="p-3 col-lg-4" key={id}>
-            <Link to={`/${id}`} element={<PokemonDetails pokemons={pokemons} />}>
+            <Link to={`/${slug}`} element={<PokemonDetails pokemons={pokemons} />}>
               <figure className="p-3">
                 <img src={image} alt={name} />
                 <figcaption>#{id} {name}</figcaption>
@@ -27,6 +29,7 @@ PokemonList.propTypes = {
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
 };

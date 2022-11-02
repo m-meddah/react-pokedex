@@ -6,7 +6,7 @@ function Header() {
       <h1><NavLink to="/">Pokédex</NavLink></h1>
       <nav className="navbar">
         <ul>
-          <li><NavLink to="#">Liste des Types</NavLink></li>
+          <li><NavLink to="/types">Liste des Types</NavLink></li>
         </ul>
       </nav>
     </header>

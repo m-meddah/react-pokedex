@@ -21,7 +21,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<PokemonList pokemons={pokemons} />} />
-        <Route path="/:id" element={<PokemonDetails pokemons={pokemons} />} />
+        <Route path="/:slug" element={<PokemonDetails pokemons={pokemons} />} />
       </Routes>
     </div>
   );
